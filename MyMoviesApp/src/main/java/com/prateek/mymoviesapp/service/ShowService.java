@@ -4,6 +4,9 @@ import com.prateek.mymoviesapp.entity.Show;
 
 public interface ShowService {
 	
-	Show getShow(long showId);
-
+	
+	public Show getShow(long showId);
+	public boolean addShow(Show show);
+	
+	
 }
