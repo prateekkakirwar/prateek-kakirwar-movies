@@ -1,0 +1,4 @@
+com.prateek.mymoviesapp.entity
+com.prateek.mymoviesapp.entity.impl
+com.prateek.mymoviesapp.service
+com.prateek.mymoviesapp.service.impl
