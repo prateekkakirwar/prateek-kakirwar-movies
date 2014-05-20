@@ -14,8 +14,6 @@ public class TheatreServiceImpl implements TheatreService {
 	@Override
 	public List<Show> getShowsForMovie(long userId) {
 		// TODO Auto-generated method stub
-
-
 		return null;
 	}
 

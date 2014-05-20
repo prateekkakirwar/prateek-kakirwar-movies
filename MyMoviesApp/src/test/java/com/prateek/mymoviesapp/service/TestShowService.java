@@ -19,10 +19,9 @@ import com.prateek.mymoviesapp.service.impl.ShowServiceImpl;
 @ContextConfiguration(locations = {"classpath:spring-context.xml"})
 public class TestShowService extends AbstractJUnit4SpringContextTests {
 	
-	//@Autowired
-	//private ShowService showService;
+	@Autowired
+	private ShowService showService;
 	
-	private ShowService showService = new ShowServiceImpl(); 
 	
 	@Test
 	public void testAddShow()
