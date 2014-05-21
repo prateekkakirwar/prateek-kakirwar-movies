@@ -10,7 +10,7 @@ public class ActionMovie implements Movie {
 	@Override
 	public long getId() {
 		// TODO Auto-generated method stub
-		return 0;
+		return id;
 	}
 
 
