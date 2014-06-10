@@ -21,6 +21,7 @@ public class MovieServiceImpl implements MovieService {
 	private MovieRepository movieRepository;
 	
 	@Override
+	@Transactional//at method level
 	public Movie getMovie(long movieId) {
 		return movieRepository.getMovie(movieId);
 	}

@@ -22,26 +22,39 @@ public class TestShowService extends AbstractJUnit4SpringContextTests {
 	@Autowired
 	private ShowService showService ;
 	
+	@Autowired
+	private MovieService movieService ;
 	
-	
+
 	@Test
-	public void testAddShow()
+	public void addAndGetShow()
 	{
-		Movie movie = new MovieImpl(1,"Godzilla");
-		Show show = new ShowImpl(1,movie,new Date());
-		Assert.assertEquals(true, showService.addShow(show));
+		ShowImpl newShow = new ShowImpl();
 		
-	}
-	
-	@Test
-	public void testGetShow()
-	{
-		Show testshow = showService.getShow(1);
-		Assert.assertEquals(1, testshow.getId());
-		Assert.assertEquals("Godzilla", testshow.getMovie().getMovieName());
+		MovieImpl newMovie = new MovieImpl();
+		newMovie.setMovieName("Godzilla");
+		newMovie.setRating(3);
+		newMovie.setReleaseDate(new Date());
+		newMovie.setGenre("Horror");
 		
+		Movie movie = movieService.addMovie(newMovie);
+		logger.info("Movie added "+ movie);
+		
+		newShow.setMovie(movie);
+		newShow.setshowTime(new Date());
+		
+		Show added = showService.addShow(newShow);
+		logger.info("Movie added "+ added);
+		Assert.assertNotEquals(0, added.getId());//this should have been created so not zero anymore
+		Assert.assertEquals(added.getMovie(), newShow.getMovie());
+		
+		
+		Show found = showService.getShow(added.getId());
+		logger.info("Show found "+ found);
+		Assert.assertEquals(found.getId(), added.getId());
+		//Assert.assertEquals(found.getMovie(), added.getMovie());
+				
 	}
-	
 	
 
 }

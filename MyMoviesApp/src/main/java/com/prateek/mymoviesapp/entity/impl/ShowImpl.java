@@ -36,7 +36,10 @@ public class ShowImpl implements Show {
 	@Column(name="showtime")
 	private Date showTime;
 	
-	
+	public ShowImpl()
+	{
+		
+	}
 
 	public ShowImpl(long id, Movie movie, Date showTime) {
 		super();

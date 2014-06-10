@@ -39,10 +39,10 @@ public class TestMovieService extends AbstractJUnit4SpringContextTests {
 		Assert.assertEquals(added.getGenre(), newMovie.getGenre());
 		
 		Movie found = movieService.getMovie(added.getId());
+		logger.info("Movie found "+ found);
 		Assert.assertEquals(found.getId(), added.getId());
 		Assert.assertEquals(found.getMovieName(), added.getMovieName());
 		Assert.assertEquals(found.getRating(), added.getRating());
-		Assert.assertEquals(found.getReleaseDate(), added.getReleaseDate());
 		Assert.assertEquals(found.getGenre(), added.getGenre());
 				
 	}

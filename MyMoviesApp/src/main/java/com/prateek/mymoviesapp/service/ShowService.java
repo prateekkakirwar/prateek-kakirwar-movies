@@ -6,7 +6,7 @@ public interface ShowService {
 	
 	
 	public Show getShow(long showId);
-	public boolean addShow(Show show);
+	public Show addShow(Show show);
 	
 	
 	

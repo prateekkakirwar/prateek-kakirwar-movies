@@ -1,48 +1,42 @@
 package com.prateek.mymoviesapp.service.impl;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.prateek.mymoviesapp.entity.Movie;
+
 import com.prateek.mymoviesapp.entity.Show;
-import com.prateek.mymoviesapp.entity.impl.MovieImpl;
 import com.prateek.mymoviesapp.entity.impl.ShowImpl;
+import com.prateek.mymoviesapp.repository.ShowRepository;
 import com.prateek.mymoviesapp.service.ShowService;
 
 @Service
 public class ShowServiceImpl implements ShowService {
 
+private Logger logger = LoggerFactory.getLogger(getClass());
 	
-	List<Show> shows = new ArrayList<Show>();
-	
-	
+	@Autowired
+	private ShowRepository showRepository;
 	
 	@Override
+	@Transactional//at method level
 	public Show getShow(long showId) {
-		// TODO Auto-generated method stub
-		Show localShow = null;
+		return showRepository.getShow(showId);
+	}
+	
+	@Override	
+	@Transactional//at method level
+	public Show addShow(Show show) {
 		
-		for(Show show:shows)
-		{
-			if(show.getId()==showId)
-			{
-				localShow = show;
-			}
-		}
+		ShowImpl impl = (ShowImpl)show;
+		long id =  showRepository.addShow(show);
+		logger.info("show added.");
+		return getShow(id);
 		
-		return localShow;
 	}
 
-
-
-	@Override
-	public boolean addShow(Show show) {
-		shows.add(show);
-		return true;
-		
-	}
 
 }
