@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.prateek.mymoviesapp.entity.Movie;
 import com.prateek.mymoviesapp.entity.Show;
-import com.prateek.mymoviesapp.entity.impl.ActionMovie;
-import com.prateek.mymoviesapp.entity.impl.MatineeShow;
+import com.prateek.mymoviesapp.entity.impl.GenericMovie;
+import com.prateek.mymoviesapp.entity.impl.GenericShow;
 import com.prateek.mymoviesapp.service.ShowService;
 
 @Service

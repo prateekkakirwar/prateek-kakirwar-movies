@@ -2,7 +2,7 @@ package com.prateek.mymoviesapp.entity.impl;
 
 import com.prateek.mymoviesapp.entity.Movie;
 
-public class ActionMovie implements Movie {
+public class GenericMovie implements Movie {
 	
 	private long id;
 	private String movieName;
@@ -14,7 +14,7 @@ public class ActionMovie implements Movie {
 	}
 
 
-	public ActionMovie(long id, String movieName) {
+	public GenericMovie(long id, String movieName) {
 		super();
 		this.id = id;
 		this.movieName = movieName;
