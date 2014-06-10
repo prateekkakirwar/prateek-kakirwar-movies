@@ -1,6 +1,5 @@
 package com.prateek.mymoviesapp.entity.impl;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,44 +10,63 @@ import javax.persistence.Table;
 import com.prateek.mymoviesapp.entity.User;
 
 @Entity
-@Table(name="users")
+@Table(name = "user")
 public class UserImpl implements User {
-	@Id //primary key
-	@Column(name="idusers")
-	@GeneratedValue(strategy=GenerationType.IDENTITY) // vendor specific code 
+	@Id
+	// primary key
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	// vendor specific code
 	private long id;
-	
-	@Column(name="first_name")
+
+	@Column(name = "firstname")
 	private String firstName;
-	
-	@Column(name="last_name")
+
+	@Column(name = "lastname")
 	private String lastName;
-	
-	@Column(name="email")
+
+	@Column(name = "email")
 	private String email;
-	
+
+	public UserImpl() {
+	}
+
 	@Override
 	public long getId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return id;
 	}
 
 	@Override
 	public String getFirstName() {
-		// TODO Auto-generated method stub
-		return null;
+		return firstName;
 	}
 
 	@Override
 	public String getLastName() {
-		// TODO Auto-generated method stub
-		return null;
+		return lastName;
 	}
 
 	@Override
 	public String getEmail() {
-		// TODO Auto-generated method stub
-		return null;
+		return email;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	@Override
+	public String toString() {
+		return "UserImpl [id=" + id + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", email=" + email + "]";
 	}
 
 }

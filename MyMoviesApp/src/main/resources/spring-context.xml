@@ -35,10 +35,10 @@
 		<!-- List each entity or scan 
 		<property name="annotatedClasses">
 			<list>
-				<value>com.irahul.tbtf.entity.impl</value>
+				<value>com.prateek.mymoviesapp.entity.impl</value>
 			</list>
 		</property> -->
-		<property name="packagesToScan"> <list> <value>com.irahul.tbtf.entity.impl</value> 
+		<property name="packagesToScan"> <list> <value>com.prateek.mymoviesapp.entity.impl</value> 
 			</list> </property>
 
 		<property name="hibernateProperties">

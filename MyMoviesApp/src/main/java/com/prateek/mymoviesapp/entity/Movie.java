@@ -13,7 +13,6 @@ public interface Movie {
 	long getId();
 	String getMovieName();
 	Date getReleaseDate();
-	String getRating();
 	String getGenre();
-	int getMovieRating();
+	int getRating();
 }
