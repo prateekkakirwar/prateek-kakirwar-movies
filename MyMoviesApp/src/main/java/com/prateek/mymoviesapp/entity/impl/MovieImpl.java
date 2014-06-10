@@ -2,11 +2,6 @@ package com.prateek.mymoviesapp.entity.impl;
 
 import java.util.Date;
 
-
-
-
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,10 +26,14 @@ public class MovieImpl implements Movie {
 	private Date releaseDate;
 	
 	@Column(name="rating")
-	private String rating;
+	private int rating;
 	
 	@Column(name="genre")
 	private String genre;
+	
+	public MovieImpl() {
+		
+	}
 	
 	public MovieImpl(long id, String movieName) {
 		super();
@@ -68,7 +67,7 @@ public class MovieImpl implements Movie {
 	@Override
 	public Date getReleaseDate() {
 		// TODO Auto-generated method stub
-		return null;
+		return releaseDate;
 	}
 	
 	public void setReleaseDate(Date releaseDate) {
@@ -79,10 +78,10 @@ public class MovieImpl implements Movie {
 	@Override
 	public int getRating() {
 		// TODO Auto-generated method stub
-		return 0;
+		return rating;
 	}
 	
-	public void setRating(String rating) {
+	public void setRating(int rating) {
 		this.rating = rating;
 	}
 

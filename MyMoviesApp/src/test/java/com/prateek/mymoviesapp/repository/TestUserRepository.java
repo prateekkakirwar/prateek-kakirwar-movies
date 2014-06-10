@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 
 import com.prateek.mymoviesapp.entity.User;
 import com.prateek.mymoviesapp.entity.impl.UserImpl;
-import com.prateek.mymoviesapp.repository.UserRepository;
+
 
 @ContextConfiguration(locations = {"classpath:spring-context.xml"})
 public class TestUserRepository extends AbstractTransactionalJUnit4SpringContextTests {
@@ -17,12 +17,15 @@ public class TestUserRepository extends AbstractTransactionalJUnit4SpringContext
 	@Autowired
 	private UserRepository userRepository;
 	
+	//private UserRepository userRepository = new UserRepositoryImpl();
+	
 	@Test
 	public void addAndGetUser(){
 		UserImpl newUser = new UserImpl();
 		newUser.setFirstName("Sam");
 		newUser.setLastName("John");
 		newUser.setEmail("sam@abc.com");
+		
 		
 		long  addedUserId = userRepository.addUser(newUser);
 		System.out.println("user added id "+addedUserId);
@@ -34,5 +37,6 @@ public class TestUserRepository extends AbstractTransactionalJUnit4SpringContext
 		Assert.assertEquals(found.getLastName(), newUser.getLastName());
 		Assert.assertEquals(found.getEmail(), newUser.getEmail());
 	}
+	
 
 }

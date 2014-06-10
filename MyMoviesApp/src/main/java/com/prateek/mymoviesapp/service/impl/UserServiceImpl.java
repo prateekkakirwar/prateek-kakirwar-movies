@@ -1,4 +1,4 @@
-package com.prateek.mymoviesapp.util;
+package com.prateek.mymoviesapp.service.impl;
 
 import javax.transaction.Transactional;
 

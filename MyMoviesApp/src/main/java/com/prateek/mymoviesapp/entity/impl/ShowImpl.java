@@ -2,17 +2,16 @@ package com.prateek.mymoviesapp.entity.impl;
 
 import java.util.Date;
 
-
-
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.prateek.mymoviesapp.entity.impl.MovieImpl;
 import com.prateek.mymoviesapp.entity.Movie;
 import com.prateek.mymoviesapp.entity.Show;
 
@@ -27,16 +26,23 @@ public class ShowImpl implements Show {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	// vendor specific code
 	private long id;
+	
+	
+	@OneToOne(targetEntity=MovieImpl.class)
+	@JoinColumn(name="movieid")	
 	private Movie movie;
-	private Date movieTime;
+	
+	
+	@Column(name="showtime")
+	private Date showTime;
 	
 	
 
-	public ShowImpl(long id, Movie movie, Date movieTime) {
+	public ShowImpl(long id, Movie movie, Date showTime) {
 		super();
 		this.id = id;
 		this.movie = movie;
-		this.movieTime = movieTime;
+		this.showTime = showTime;
 	}
 
 	@Override	
@@ -44,16 +50,16 @@ public class ShowImpl implements Show {
 		return movie;
 	}
 
-	public Date getMovieTime() {
-		return movieTime;
+	public Date getshowTime() {
+		return showTime;
 	}
 
 	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
 
-	public void setMovieTime(Date movieTime) {
-		this.movieTime = movieTime;
+	public void setshowTime(Date showTime) {
+		this.showTime = showTime;
 	}
 	
 	public long getId() {
@@ -66,6 +72,14 @@ public class ShowImpl implements Show {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public String toString() {
+		return "ShowImpl [id=" + id + ", movie=" + movie + ", showTime="
+				+ showTime + "]";
+	}
+	
+	
 	
 	
 
