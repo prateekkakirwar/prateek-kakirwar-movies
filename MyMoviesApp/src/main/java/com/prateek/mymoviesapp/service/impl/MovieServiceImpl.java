@@ -27,12 +27,12 @@ public class MovieServiceImpl implements MovieService {
 	
 	@Override	
 	@Transactional//at method level
-	public long addMovie(Movie movie) {
+	public Movie addMovie(Movie movie) {
 		
 		MovieImpl impl = (MovieImpl)movie;
 		long id =  movieRepository.addMovie(movie);
 		logger.info("movie added.");
-		return id;
+		return getMovie(id);
 		
 	}
 	

@@ -4,7 +4,7 @@ import com.prateek.mymoviesapp.entity.Movie;
 
 public interface MovieService {
 	
-	long addMovie(Movie movie);
+	Movie addMovie(Movie movie);
 	
 	Movie getMovie(long movieId);
 
