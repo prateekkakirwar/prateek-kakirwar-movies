@@ -10,5 +10,7 @@ public interface Show {
 	
 	public Movie getMovie();
 	
+	public Theatre getTheatre();
+	
 	
 }

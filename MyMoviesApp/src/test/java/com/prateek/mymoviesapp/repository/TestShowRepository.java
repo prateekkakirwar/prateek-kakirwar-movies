@@ -10,9 +10,10 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 
 import com.prateek.mymoviesapp.entity.Movie;
 import com.prateek.mymoviesapp.entity.Show;
-import com.prateek.mymoviesapp.entity.User;
+import com.prateek.mymoviesapp.entity.Theatre;
 import com.prateek.mymoviesapp.entity.impl.MovieImpl;
 import com.prateek.mymoviesapp.entity.impl.ShowImpl;
+import com.prateek.mymoviesapp.entity.impl.TheatreImpl;
 
 @ContextConfiguration(locations = {"classpath:spring-context.xml"})
 public class TestShowRepository  extends AbstractTransactionalJUnit4SpringContextTests {
@@ -22,6 +23,9 @@ public class TestShowRepository  extends AbstractTransactionalJUnit4SpringContex
 	
 	@Autowired
 	private MovieRepository movieRepository;
+	
+	@Autowired
+	private TheatreRepository theatreRepository;
 	
 	//private ShowRepository showRepository = new ShowRepositoryImpl();
 	
@@ -37,8 +41,19 @@ public class TestShowRepository  extends AbstractTransactionalJUnit4SpringContex
 		long addedMovieId = movieRepository.addMovie(newMovie);
 		System.out.println("movie added id "+addedMovieId);
 		
+		TheatreImpl newTheatre = new TheatreImpl();
+		newTheatre.setTheatreName("AMC");
+		newTheatre.setZipCode("94089");
+		newTheatre.setCityName("Sunnyvale");
+		newTheatre.setStateName("CA");
+		
+		long addedTheatreId = theatreRepository.addTheatre(newTheatre);
+		System.out.println("theatre added id "+ addedTheatreId);
+		
+		Theatre theatre = theatreRepository.getTheatre(addedTheatreId);	
 		Movie movie = movieRepository.getMovie(addedMovieId);
 		
+		newShow.setTheatre(theatre);
 		newShow.setMovie(movie);
 		newShow.setshowTime(new Date());
 		

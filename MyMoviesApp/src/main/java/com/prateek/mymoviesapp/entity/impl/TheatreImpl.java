@@ -7,17 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 
 import com.prateek.mymoviesapp.entity.Theatre;
 
 @Entity
 @Table(name = "theatre")
-@SecondaryTable(name="theatre_shows", pkJoinColumns = @PrimaryKeyJoinColumn(name="theatreid", referencedColumnName="id"))
-
 public class TheatreImpl implements Theatre {
 	
 	@Id

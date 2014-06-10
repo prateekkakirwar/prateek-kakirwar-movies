@@ -9,11 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.prateek.mymoviesapp.entity.impl.MovieImpl;
+import com.prateek.mymoviesapp.entity.impl.TheatreImpl;
 import com.prateek.mymoviesapp.entity.Movie;
 import com.prateek.mymoviesapp.entity.Show;
+import com.prateek.mymoviesapp.entity.Theatre;
 
 
 @Entity
@@ -32,6 +35,9 @@ public class ShowImpl implements Show {
 	@JoinColumn(name="movieid")	
 	private Movie movie;
 	
+	@ManyToOne(targetEntity=TheatreImpl.class)
+	@JoinColumn(name="theatreid")	
+	private Theatre theatre;
 	
 	@Column(name="showtime")
 	private Date showTime;
@@ -41,11 +47,12 @@ public class ShowImpl implements Show {
 		
 	}
 
-	public ShowImpl(long id, Movie movie, Date showTime) {
+	public ShowImpl(long id, Movie movie, Date showTime, Theatre theatre) {
 		super();
 		this.id = id;
 		this.movie = movie;
 		this.showTime = showTime;
+		this.theatre = theatre;
 	}
 
 	@Override	
@@ -53,9 +60,6 @@ public class ShowImpl implements Show {
 		return movie;
 	}
 
-	public Date getshowTime() {
-		return showTime;
-	}
 
 	public void setMovie(Movie movie) {
 		this.movie = movie;
@@ -66,21 +70,30 @@ public class ShowImpl implements Show {
 	}
 	
 	public long getId() {
-		// TODO Auto-generated method stub
 		return id;
 	}
 
 	@Override
 	public Date getShowTime() {
-		// TODO Auto-generated method stub
-		return null;
+		return showTime;
+	}
+	
+	
+	@Override
+	public Theatre getTheatre() {
+		return theatre;
+	}
+
+	public void setTheatre(Theatre theatre) {
+		this.theatre = theatre;
 	}
 
 	@Override
 	public String toString() {
-		return "ShowImpl [id=" + id + ", movie=" + movie + ", showTime="
-				+ showTime + "]";
+		return "ShowImpl [id=" + id + ", movie=" + movie + ", theatre="
+				+ theatre + ", showTime=" + showTime + "]";
 	}
+
 	
 	
 	
