@@ -16,7 +16,5 @@ public interface Theatre {
 	
 	String getStateName();
 	
-	String getMovieName();
-	
 	List<Show> list = new ArrayList<Show>();
 }
