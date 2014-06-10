@@ -1,5 +1,7 @@
 package com.prateek.mymoviesapp.entity;
 
+import java.util.Date;
+
 /**
  * A generic Movie
  * @author Prateek
@@ -9,9 +11,9 @@ package com.prateek.mymoviesapp.entity;
 public interface Movie {
 	
 	long getId();
-	
 	String getMovieName();
-	
-	
-
+	Date getReleaseDate();
+	String getRating();
+	String getGenre();
+	int getMovieRating();
 }

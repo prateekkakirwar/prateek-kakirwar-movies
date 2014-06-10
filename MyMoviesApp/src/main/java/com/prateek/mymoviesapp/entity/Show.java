@@ -1,10 +1,14 @@
 package com.prateek.mymoviesapp.entity;
 
+import java.util.Date;
+
 public interface Show {
 	
-	public Movie getMovie();
-	
 	public long getId();
+	
+	Date getShowTime();
+	
+	public Movie getMovie();
 	
 	
 }

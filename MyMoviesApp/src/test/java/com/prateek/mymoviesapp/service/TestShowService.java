@@ -11,8 +11,8 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
 import com.prateek.mymoviesapp.entity.Movie;
 import com.prateek.mymoviesapp.entity.Show;
-import com.prateek.mymoviesapp.entity.impl.GenericMovie;
-import com.prateek.mymoviesapp.entity.impl.GenericShow;
+import com.prateek.mymoviesapp.entity.impl.MovieImpl;
+import com.prateek.mymoviesapp.entity.impl.ShowImpl;
 import com.prateek.mymoviesapp.service.impl.ShowServiceImpl;
 
 
@@ -27,8 +27,8 @@ public class TestShowService extends AbstractJUnit4SpringContextTests {
 	@Test
 	public void testAddShow()
 	{
-		Movie movie = new GenericMovie(1,"Godzilla");
-		Show show = new GenericShow(1,movie,new Date());
+		Movie movie = new MovieImpl(1,"Godzilla");
+		Show show = new ShowImpl(1,movie,new Date());
 		Assert.assertEquals(true, showService.addShow(show));
 		
 	}

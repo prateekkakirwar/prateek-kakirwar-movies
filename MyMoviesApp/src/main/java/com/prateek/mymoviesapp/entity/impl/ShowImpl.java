@@ -5,7 +5,7 @@ import java.util.Date;
 import com.prateek.mymoviesapp.entity.Movie;
 import com.prateek.mymoviesapp.entity.Show;
 
-public class GenericShow implements Show {
+public class ShowImpl implements Show {
 	
 	private long id;
 	private Movie movie;
@@ -13,7 +13,7 @@ public class GenericShow implements Show {
 	
 	
 
-	public GenericShow(long id, Movie movie, Date movieTime) {
+	public ShowImpl(long id, Movie movie, Date movieTime) {
 		super();
 		this.id = id;
 		this.movie = movie;
@@ -40,6 +40,12 @@ public class GenericShow implements Show {
 	public long getId() {
 		// TODO Auto-generated method stub
 		return id;
+	}
+
+	@Override
+	public Date getShowTime() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
