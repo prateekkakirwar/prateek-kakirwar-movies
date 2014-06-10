@@ -2,12 +2,16 @@ package com.prateek.mymoviesapp.service;
 
 import java.util.List;
 
-import com.prateek.mymoviesapp.entity.Show;
+
+import com.prateek.mymoviesapp.entity.Theatre;
+
 
 
 
 public interface TheatreService {
 	
-	List<Show> getShowsForMovie(long movieId);
+	Theatre addTheatre(Theatre theatre);
+
+	Theatre getTheatre(long theatreId);
 
 }

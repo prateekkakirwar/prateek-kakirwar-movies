@@ -11,8 +11,11 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
 import com.prateek.mymoviesapp.entity.Movie;
 import com.prateek.mymoviesapp.entity.Show;
+import com.prateek.mymoviesapp.entity.Theatre;
 import com.prateek.mymoviesapp.entity.impl.MovieImpl;
 import com.prateek.mymoviesapp.entity.impl.ShowImpl;
+import com.prateek.mymoviesapp.entity.impl.TheatreImpl;
+import com.prateek.mymoviesapp.repository.TheatreRepository;
 import com.prateek.mymoviesapp.service.impl.ShowServiceImpl;
 
 
@@ -24,6 +27,9 @@ public class TestShowService extends AbstractJUnit4SpringContextTests {
 	
 	@Autowired
 	private MovieService movieService ;
+	
+	@Autowired
+	private TheatreService theatreService;
 	
 
 	@Test
@@ -40,11 +46,23 @@ public class TestShowService extends AbstractJUnit4SpringContextTests {
 		Movie movie = movieService.addMovie(newMovie);
 		logger.info("Movie added "+ movie);
 		
+		TheatreImpl newTheatre = new TheatreImpl();
+		newTheatre.setTheatreName("AMC");
+		newTheatre.setZipCode("94089");
+		newTheatre.setCityName("Sunnyvale");
+		newTheatre.setStateName("CA");
+		
+		Theatre addedTheatre = theatreService.addTheatre(newTheatre);
+		System.out.println("theatre added id "+ addedTheatre);
+		
+		Theatre theatre = theatreService.getTheatre(addedTheatre.getId());	
+		
+		newShow.setTheatre(theatre);
 		newShow.setMovie(movie);
 		newShow.setshowTime(new Date());
 		
 		Show added = showService.addShow(newShow);
-		logger.info("Movie added "+ added);
+		logger.info("Show added "+ added);
 		Assert.assertNotEquals(0, added.getId());//this should have been created so not zero anymore
 		Assert.assertEquals(added.getMovie(), newShow.getMovie());
 		
