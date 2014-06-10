@@ -2,11 +2,13 @@ package com.prateek.mymoviesapp.repository.impl;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.prateek.mymoviesapp.entity.Movie;
 import com.prateek.mymoviesapp.entity.impl.MovieImpl;
 import com.prateek.mymoviesapp.repository.MovieRepository;
 
+@Repository
 public class MovieRepositoryImpl implements MovieRepository {
 	
 	@Autowired

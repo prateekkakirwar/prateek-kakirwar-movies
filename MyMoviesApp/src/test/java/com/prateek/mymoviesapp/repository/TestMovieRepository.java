@@ -13,10 +13,10 @@ import com.prateek.mymoviesapp.repository.impl.MovieRepositoryImpl;
 @ContextConfiguration(locations = {"classpath:spring-context.xml"})
 public class TestMovieRepository extends AbstractTransactionalJUnit4SpringContextTests {
 	
-	//@Autowired 
-	//private MovieRepository movieRepository;
+	@Autowired 
+	private MovieRepository movieRepository;
 	
-	private MovieRepository movieRepository = new MovieRepositoryImpl();
+	//private MovieRepository movieRepository = new MovieRepositoryImpl();
 	
 	@Test
 	public void getMovie(){
