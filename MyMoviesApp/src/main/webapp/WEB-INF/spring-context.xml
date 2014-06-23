@@ -11,7 +11,7 @@
 
 	<context:annotation-config />
 	<context:component-scan base-package="com.prateek"/>
-	<context:property-placeholder location="properties/database.properties" />
+	<context:property-placeholder location="classpath:properties/database.properties" />
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	

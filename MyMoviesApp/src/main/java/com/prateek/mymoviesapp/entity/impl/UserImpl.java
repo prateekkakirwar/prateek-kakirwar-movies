@@ -1,3 +1,4 @@
+
 package com.prateek.mymoviesapp.entity.impl;
 
 import javax.persistence.Column;
