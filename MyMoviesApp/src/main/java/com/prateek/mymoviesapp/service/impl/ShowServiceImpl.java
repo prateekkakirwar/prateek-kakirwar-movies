@@ -47,8 +47,7 @@ private Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Override
 	@Transactional
-	public List<Show> getShows(Date showTime, String movieName,
-			String theatreName) {
+	public List<Show> getShows(Date showTime, String movieName, String theatreName) {
 		List<Show> returnList = new ArrayList<Show>();
 		if(showTime==null&&StringUtils.isEmpty(movieName) && StringUtils.isEmpty(theatreName)){
 			throw new MyMoviesAppException(ErrorCode.MISSING_DATA, "no search parameter provided");	

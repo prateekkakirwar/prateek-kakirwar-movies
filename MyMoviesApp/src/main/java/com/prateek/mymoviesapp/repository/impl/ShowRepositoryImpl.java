@@ -35,6 +35,7 @@ public class ShowRepositoryImpl implements ShowRepository {
 	public List<Show> search(Date showTime, String movieName, String theatreName) {
 		Criteria crit = this.sessionFactory.getCurrentSession().createCriteria(Show.class);
 		if(!StringUtils.isEmpty(movieName)){
+			crit.createAlias("movieid", "id");
 			crit.add(Restrictions.like("movieName", "%"+movieName+"%"));
 		}
 		if(!StringUtils.isEmpty(theatreName)){
