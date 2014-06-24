@@ -1,8 +1,14 @@
 package com.prateek.mymoviesapp.repository.impl;
 
+import java.util.Date;
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import com.prateek.mymoviesapp.entity.Show;
 import com.prateek.mymoviesapp.entity.impl.ShowImpl;
@@ -24,5 +30,24 @@ public class ShowRepositoryImpl implements ShowRepository {
 	public Show getShow(long showId) {
 		return (Show) this.sessionFactory.getCurrentSession().get(ShowImpl.class, showId);
 	}
+
+	@Override
+	public List<Show> search(Date showTime, String movieName, String theatreName) {
+		Criteria crit = this.sessionFactory.getCurrentSession().createCriteria(Show.class);
+		if(!StringUtils.isEmpty(movieName)){
+			crit.add(Restrictions.like("movieName", "%"+movieName+"%"));
+		}
+		if(!StringUtils.isEmpty(theatreName)){
+			crit.add(Restrictions.like("theatreName", "%"+theatreName+"%"));
+		}
+		if(showTime!=null){
+			crit.add(Restrictions.lt("showTime", showTime));
+		}
+		
+		List<Show> searchResult = crit.list();		
+		return searchResult;
+	}
+	
+	
 
 }

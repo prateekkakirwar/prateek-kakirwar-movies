@@ -59,7 +59,7 @@ public class TestShowService extends AbstractJUnit4SpringContextTests {
 		
 		newShow.setTheatre(theatre);
 		newShow.setMovie(movie);
-		newShow.setshowTime(new Date());
+		newShow.setShowTime(new Date());
 		
 		Show added = showService.addShow(newShow);
 		logger.info("Show added "+ added);

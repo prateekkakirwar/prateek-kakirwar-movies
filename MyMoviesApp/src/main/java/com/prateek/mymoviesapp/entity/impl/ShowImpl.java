@@ -65,7 +65,7 @@ public class ShowImpl implements Show {
 		this.movie = movie;
 	}
 
-	public void setshowTime(Date showTime) {
+	public void setShowTime(Date showTime) {
 		this.showTime = showTime;
 	}
 	

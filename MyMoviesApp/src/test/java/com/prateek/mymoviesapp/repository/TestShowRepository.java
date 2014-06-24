@@ -55,7 +55,7 @@ public class TestShowRepository  extends AbstractTransactionalJUnit4SpringContex
 		
 		newShow.setTheatre(theatre);
 		newShow.setMovie(movie);
-		newShow.setshowTime(new Date());
+		newShow.setShowTime(new Date());
 		
 		
 		long  addedShowId = showRepository.addShow(newShow);

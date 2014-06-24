@@ -45,6 +45,7 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
+	@Transactional//at method level
 	public List<Movie> getMovies(String movieName, Date releaseDate, int rating,
 			String genre) {
 		List<Movie> returnList = new ArrayList<Movie>();

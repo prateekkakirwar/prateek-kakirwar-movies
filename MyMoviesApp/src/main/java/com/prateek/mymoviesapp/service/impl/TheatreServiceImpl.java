@@ -36,6 +36,7 @@ private Logger logger = LoggerFactory.getLogger(getClass());
 	}
 
     @Override
+    @Transactional//at method level
     public List<Theatre> getTheatres(String theatreName, String zipCode, String cityName, String stateName) {
         List<Theatre> returnList = new ArrayList<Theatre>();
         if(StringUtils.isEmpty(theatreName) && StringUtils.isEmpty(zipCode) && StringUtils.isEmpty(cityName) && StringUtils.isEmpty(stateName)){
