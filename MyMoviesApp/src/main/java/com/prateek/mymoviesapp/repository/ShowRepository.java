@@ -12,5 +12,7 @@ public interface ShowRepository {
 	Show getShow(long showId);
 	
 	List<Show> search(Date showTime, String movieName, String theatreName);
+	
+	
 
 }
