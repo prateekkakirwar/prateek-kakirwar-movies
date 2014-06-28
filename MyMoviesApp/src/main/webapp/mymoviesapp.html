@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en" ng-app="tbtfBankApp">
+<html lang="en" ng-app="MyMoviesApp">
 <head>
 <meta charset="utf-8">
 <title>My Movies Application</title>
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 <script src="js/angular.min.js"></script>
-<script src="js/bankcontroller.js"></script>
+<script src="js/mymoviesappcontroller.js"></script>
 </head>
 <body>
     <div class="container">
@@ -46,7 +46,7 @@
             </div>
             <div class="span4">
                 <!-- New Customer -->
-                <div ng-controller="bankAddUserController">
+                <div ng-controller="MyMoviesAppAddUserController">
                     <h3><i class="icon-user"></i> New Signup</h3>
                     <p ng-class="{'alert alert-error':errorStatus,'alert alert-success':!errorStatus}">{{messageText}}</p>
                     First Name <input ng-model="createFirstName" /><br/>
