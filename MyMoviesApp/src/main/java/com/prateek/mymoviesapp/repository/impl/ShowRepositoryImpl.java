@@ -33,6 +33,10 @@ public class ShowRepositoryImpl implements ShowRepository {
 
 	@Override
 	public List<Show> search(Date showTime, String movieName, String theatreName) {
+		
+		List<Show> searchResult = null;
+		try
+		{
 		Criteria crit = this.sessionFactory.getCurrentSession().createCriteria(ShowImpl.class);
 		if(!StringUtils.isEmpty(movieName)){
 			crit.add(Restrictions.like("movie.movieName", "%"+movieName+"%"));
@@ -43,8 +47,15 @@ public class ShowRepositoryImpl implements ShowRepository {
 		if(showTime!=null){
 			crit.add(Restrictions.eq("showTime", showTime));
 		}
-		
-		List<Show> searchResult = crit.list();		
+				searchResult = crit.list();
+		}
+		catch(Exception e)
+		{
+			 e.printStackTrace();
+		}
+		finally {
+	        
+	    }
 		return searchResult;
 	}
 	
