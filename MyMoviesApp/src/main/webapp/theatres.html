@@ -2,37 +2,43 @@
 <html lang="en" ng-app="MyMoviesApp">
 <head>
 <meta charset="utf-8">
-<title>My Movies Application - Users</title>
+<title>My Movies Application - Theatres</title>
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 <script src="js/angular.min.js"></script>
 <script src="js/mymoviesappcontroller.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>My Movies App - Users</h1>         
+        <h1>My Movies App - Theatres</h1>         
         <div class="row">            
             <div class="span4">
-                <!-- User search -->
-                <div ng-controller="UserSearchController">
-                    <h3><i class="icon-user"></i> Find Users</h3>
+                <!-- Theatre search -->
+                <div ng-controller="TheatreSearchController">
+                    <h3><i class="icon-home"></i> Find Theatres</h3>
                     <p ng-class="{'alert alert-error':errorStatus,'alert alert-success':!errorStatus}">{{messageText}}</p>
-                    First Name <input ng-model="searchFirstName" /> 
-                    Last Name <input ng-model="searchLastName" />
+                    TheatreName 	<input ng-model="searchTheatreName" /> 
+                    ZipCode 		<input ng-model="searchZipCode" />
+                    City 			<input ng-model="searchCityName" /> 
+                    State 			<input ng-model="searchStateName" />
                     <a class="btn btn-success" ng-click="search()"><i class="icon-search"></i> Search</a>
                     <div>
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Last Name</th>
-                                    <th>First Name</th>
+                                    <th>Theatre Name</th>
+                                    <th>Zipcode</th>
+                                    <th>City</th>
+                                    <th>State</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="user in users">
-                                    <td>{{user.user.id}}</td>
-                                    <td>{{user.user.lastName}}</td>
-                                    <td>{{user.user.firstName}}</td>
+                                <tr ng-repeat="theatre in theatres">
+                                    <td>{{theatre.theatre.id}}</td>
+                                    <td>{{theatre.theatre.theatreName}}</td>
+                                    <td>{{theatre.theatre.zipcode}}</td>
+                                    <td>{{theatre.theatre.cityname}}</td>
+                                    <td>{{theatre.theatre.statename}}</td>
                                 </tr>
                             </tbody>
                         </table>                        
@@ -45,17 +51,16 @@
                 </div>                
             </div>
             <div class="span4">
-                <!-- New Customer -->
-                <div ng-controller="MyMoviesAppAddUserController">
-                    <h3><i class="icon-user"></i> New Signup</h3>
+                <!-- New Theatre -->
+                <div ng-controller="MyMoviesAppAddTheatreController">
+                    <h3><i class="icon-home"></i> New Theatre Entry</h3>
                     <p ng-class="{'alert alert-error':errorStatus,'alert alert-success':!errorStatus}">{{messageText}}</p>
-                    First Name <input ng-model="createFirstName" /><br/>
-                    Last Name <input ng-model="createLastName" /><br/>
-                    Email <input ng-model="createEmail" /><br/>
-                    <a class="btn btn-success" ng-click="create()"><i class="icon-plus-sign"></i> Create User</a>
-                    
-                    
-                    <div class="muted">
+                    TheatreName <input ng-model="createTheatreName" /><br/> 
+                    ZipCode <input ng-model="createZipCode" /><br/>
+                    City <input ng-model="createCityName" /><br/> 
+                    State <input ng-model="createStateName" /><br/>
+                    <a class="btn btn-success" ng-click="create()"><i class="icon-plus-sign"></i> Add Theatre</a>
+				     <div class="muted">
                         <h6>DEBUG</h6>
                         <p>HTTP Response status {{httpStatus}}</p>
                         <p>HTTP Response body {{httpData | json}}</p>                      
