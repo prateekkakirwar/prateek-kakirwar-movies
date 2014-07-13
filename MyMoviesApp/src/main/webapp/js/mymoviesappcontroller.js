@@ -32,7 +32,6 @@ MyMoviesApp.controller('MovieSearchController', function($scope, $http) {
 });
 
 MyMoviesApp.controller('MyMoviesAppAddMovieController', function($scope, $http) {	
-	
 	$scope.create = function() {
 		$scope.messageText="";
 		
