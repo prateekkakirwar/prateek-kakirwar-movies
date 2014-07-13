@@ -37,25 +37,25 @@ public class ShowRepositoryImpl implements ShowRepository {
 		List<Show> searchResult = null;
 		try
 		{
-		Criteria crit = this.sessionFactory.getCurrentSession().createCriteria(ShowImpl.class);
-		if(!StringUtils.isEmpty(movieName)){
-			crit.add(Restrictions.like("movie.movieName", "%"+movieName+"%"));
-		}
-		if(!StringUtils.isEmpty(theatreName)){
-			crit.add(Restrictions.like("theatreName", "%"+theatreName+"%"));
-		}
-		if(showTime!=null){
-			crit.add(Restrictions.eq("showTime", showTime));
-		}
-				searchResult = crit.list();
+			Criteria crit = this.sessionFactory.getCurrentSession().createCriteria(ShowImpl.class);
+			if(!StringUtils.isEmpty(movieName)){
+				crit.add(Restrictions.like("movie.movieName", "%"+movieName+"%"));
+			}
+			if(!StringUtils.isEmpty(theatreName)){
+				crit.add(Restrictions.like("theatreName", "%"+theatreName+"%"));
+			}
+			if(showTime!=null){
+				crit.add(Restrictions.gt("showTime", showTime));
+			}
+			searchResult = crit.list();
 		}
 		catch(Exception e)
 		{
-			 e.printStackTrace();
+			e.printStackTrace();
 		}
 		finally {
-	        
-	    }
+
+		}
 		return searchResult;
 	}
 	

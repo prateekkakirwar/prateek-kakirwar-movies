@@ -38,7 +38,7 @@ public class MovieRepositoryImpl implements MovieRepository {
 			crit.add(Restrictions.like("movieName", "%"+movieName+"%"));
 		}
 		if(releaseDate!=null){
-			crit.add(Restrictions.lt("releaseDate", releaseDate));
+			crit.add(Restrictions.gt("releaseDate", releaseDate));
 		}
 		if(rating > 0){
 			crit.add(Restrictions.eq("rating", rating));

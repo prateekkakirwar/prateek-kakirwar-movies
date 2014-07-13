@@ -2,15 +2,16 @@ package com.prateek.mymoviesapp.entity;
 
 import java.util.Date;
 
+/**
+ * A generic Show
+ * @author Prateek
+ *
+ */
+
 public interface Show {
 	
-	public long getId();
-	
+	long getId();	
 	Date getShowTime();
-	
-	public Movie getMovie();
-	
-	public Theatre getTheatre();
-	
-	
+	Movie getMovie();
+	Theatre getTheatre();
 }

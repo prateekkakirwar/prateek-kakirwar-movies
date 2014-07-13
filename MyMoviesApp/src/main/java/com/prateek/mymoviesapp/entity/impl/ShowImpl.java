@@ -23,18 +23,15 @@ import com.prateek.mymoviesapp.entity.Theatre;
 @Table(name = "shows")
 public class ShowImpl implements Show {
 	
-	@Id
-	// primary key
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	// vendor specific code
+	@Id // primary key
+	@Column(name="id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY) // vendor specific code
 	private long id;
 	
 	
 	@OneToOne(targetEntity=MovieImpl.class)
 	@JoinColumn(name="movieid")	
 	private Movie movie;
-	
 	@ManyToOne(targetEntity=TheatreImpl.class)
 	@JoinColumn(name="theatreid")	
 	private Theatre theatre;
@@ -69,15 +66,15 @@ public class ShowImpl implements Show {
 		this.showTime = showTime;
 	}
 	
-	public long getId() {
-		return id;
-	}
-
 	@Override
 	public Date getShowTime() {
 		return showTime;
 	}
 	
+	public long getId() {
+		return id;
+	}
+
 	
 	@Override
 	public Theatre getTheatre() {
