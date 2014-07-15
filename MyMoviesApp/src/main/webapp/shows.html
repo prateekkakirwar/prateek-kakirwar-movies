@@ -2,7 +2,7 @@
 <html lang="en" ng-app="MyMoviesApp">
 <head>
 <meta charset="utf-8">
-<title>My Movies Application - Theatres</title>
+<title>My Movies Application - Shows</title>
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 <link rel="stylesheet" type="text/css" href="css/navigation.css" />
 <script src="js/angular.min.js"></script>
@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>My Movies App - Theatres</h1>
+        <h1>My Movies App - Shows</h1>    
         <div id="navigation"> 
 		<ul> 
 			<li><a href="users.html" id="current">Users</a></li> 
@@ -18,36 +18,33 @@
 			<li><a href="theatres.html">Theatres</a></li> 
 			<li><a href="shows.html">Shows</a></li>			   
 		</ul> 
-   		</div>           
+   		</div>       
         <div class="row">            
             <div class="span4">
-                <!-- Theatre search -->
-                <div ng-controller="TheatreSearchController">
-                    <h3><i class="icon-home"></i> Find Theatres</h3>
+                <!-- Show search -->
+                <div ng-controller="ShowSearchController">
+                    <h3><i class="icon-music"></i> Find Shows</h3>
                     <p ng-class="{'alert alert-error':errorStatus,'alert alert-success':!errorStatus}">{{messageText}}</p>
-                    Theatre Name 	<input ng-model="searchTheatreName" /> 
-                    ZipCode 		<input ng-model="searchZipCode" />
-                    City 			<input ng-model="searchCityName" /> 
-                    State 			<input ng-model="searchStateName" />
+                    Show Time <input ng-model="searchShowTime" />
+                    Movie Name<input ng-model="searchMovieName" /> 
+                    Theatre Name <input ng-model="searchTheatreName" />
                     <a class="btn btn-success" ng-click="search()"><i class="icon-search"></i> Search</a>
                     <div>
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Theatre Name</th>
-                                    <th>Zipcode</th>
-                                    <th>City</th>
-                                    <th>State</th>
+                                	<th>Show ID</th>
+                                    <th>Show Time</th>
+                                    <th>Movie Name</th>
+                                    <th>TheatreName</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="theatre in theatres">
-                                    <td>{{theatre.theatre.id}}</td>
-                                    <td>{{theatre.theatre.theatreName}}</td>
-                                    <td>{{theatre.theatre.zipcode}}</td>
-                                    <td>{{theatre.theatre.cityname}}</td>
-                                    <td>{{theatre.theatre.statename}}</td>
+                                <tr ng-repeat="show in shows">
+                                	<td>{{show.show.id}}</td>
+                                    <td>{{show.show.showTime}}</td>
+                                    <td>{{show.show.movie.movieName}}</td>
+                                    <td>{{show.show.theatre.theatreName}}</td>
                                 </tr>
                             </tbody>
                         </table>                        
@@ -60,16 +57,17 @@
                 </div>                
             </div>
             <div class="span4">
-                <!-- New Theatre -->
-                <div ng-controller="MyMoviesAppAddTheatreController">
-                    <h3><i class="icon-home"></i> New Theatre Entry</h3>
+                <!-- New Customer -->
+                <div ng-controller="MyMoviesAppAddShowController">
+                    <h3><i class="icon-music"></i> New Show Entry</h3>
                     <p ng-class="{'alert alert-error':errorStatus,'alert alert-success':!errorStatus}">{{messageText}}</p>
-                    Theatre Name <input ng-model="createTheatreName" /><br/> 
-                    ZipCode <input ng-model="createZipCode" /><br/>
-                    City <input ng-model="createCityName" /><br/> 
-                    State <input ng-model="createStateName" /><br/>
-                    <a class="btn btn-success" ng-click="create()"><i class="icon-plus-sign"></i> Add Theatre</a>
-				     <div class="muted">
+                    Show time <input ng-model="createShowTime" /><br/>
+                    Movie Id  <input ng-model="createMovieId" /><br/>
+                    Theatre Id <input ng-model="createTheatreId" /><br/>
+                    <a class="btn btn-success" ng-click="create()"><i class="icon-plus-sign"></i> Create Show</a>
+                    
+                    
+                    <div class="muted">
                         <h6>DEBUG</h6>
                         <p>HTTP Response status {{httpStatus}}</p>
                         <p>HTTP Response body {{httpData | json}}</p>                      

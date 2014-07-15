@@ -1,0 +1,39 @@
+/* Navigation Properties */
+
+#navigation h5 {
+ display: none;
+}
+#navigation ul {
+ padding: 3px 0; 
+ margin-left: 0; 
+ border-bottom: 1px solid #778; 
+ font: bold 12px Verdana, sans-serif; 
+}
+#navigation ul li {
+ list-style: none;
+ margin: 0; 
+ display: inline; 
+}
+#navigation ul li a {
+ padding: 3px 0.5em; 
+ margin-left: 3px; 
+ border: 1px solid #778;
+ border-bottom: none;
+ background: #468847;;
+ text-decoration: none;
+}
+#navigation ul li a:link {
+ color: #448;
+}
+#navigation ul li a:visited {
+ color: #667;
+}
+#navigation ul li a:link:hover, #navigation ul li a:visited:hover {
+ color: black;
+ background:#468847;; 
+ border-color: #227;
+}
+#navigation ul li a#current {
+ background:#468847;; 
+ border-bottom: 1px solid white;
+}

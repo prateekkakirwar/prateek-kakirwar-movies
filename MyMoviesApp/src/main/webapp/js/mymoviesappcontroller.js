@@ -52,6 +52,57 @@ MyMoviesApp.controller('MyMoviesAppAddMovieController', function($scope, $http) 
 	};
 });
 
+MyMoviesApp.controller('ShowSearchController', function($scope, $http) {
+	$scope.shows = [];
+
+	$scope.search = function() {
+		//remove current results
+		$scope.shows = [];
+		$scope.messageText="";
+		
+		//search
+		$http.get('/MyMoviesApp/rest/shows',		
+			{params: {
+				showTime:$scope.searchShowTime, 
+				movieName:$scope.searchMovieName,
+				theatreName:$scope.searchTheatreName}})
+			.success(function(data, status) {
+				$scope.httpStatus = status;
+				$scope.httpData = data;
+				$scope.errorStatus=false;
+				$scope.messageText="Found "+data.length;
+				$scope.shows = data;
+			})
+			.error(function(data, status) {
+				$scope.httpStatus = status;				
+				$scope.httpData = data;
+				$scope.errorStatus=true;
+				$scope.messageText=data.error.code+ " "+ data.error.message;
+			});		
+	};
+});
+
+MyMoviesApp.controller('MyMoviesAppAddShowController', function($scope, $http) {	
+	$scope.create = function() {
+		$scope.messageText="";
+		
+		$http.post('/MyMoviesApp/rest/shows',
+				{"show":{"showTime":$scope.createShowTime,"movieId":$scope.createMovieId,"theatreId":$scope.createTheatreId}})
+			.success(function(data, status) {
+				$scope.httpStatus = status;
+				$scope.httpData = data;
+				$scope.errorStatus=false;
+				$scope.messageText="Created new show with ID "+data.user.id;				
+			})
+			.error(function(data, status) {
+				$scope.httpStatus = status;				
+				$scope.httpData = data;
+				$scope.errorStatus=true;
+				$scope.messageText=data.error.code+ " "+ data.error.message;
+			});
+	};
+});
+
 MyMoviesApp.controller('TheatreSearchController', function($scope, $http) {
 	$scope.theatres = [];
 
