@@ -23,13 +23,13 @@
  text-decoration: none;
 }
 #navigation ul li a:link {
- color: #448;
+ color: black ;
 }
 #navigation ul li a:visited {
- color: #667;
+ color: black;
 }
 #navigation ul li a:link:hover, #navigation ul li a:visited:hover {
- color: black;
+ color: #448;
  background:#468847;; 
  border-color: #227;
 }
